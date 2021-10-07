@@ -24,8 +24,8 @@ export class User extends BaseEntity {
   };
 
   constructor(input?: IRegisterInput) {
+    super();
     if (input) {
-      super();
       this.username = input.username;
       this.password = saltHashPassword(input.password);
     }

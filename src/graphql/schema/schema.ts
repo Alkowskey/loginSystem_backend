@@ -1,13 +1,51 @@
-import { makeExecutableSchema } from "graphql-tools";
+import { gql } from "apollo-server-express";
 
-//import { type } from "./schema.graphql";
-import { GraphQLSchema } from "graphql";
-import resolverMap from "../resolvers/userResolvers";
-import type from "./schema.graphql";
+export default gql`
+  """
+  All queries of users system
+  """
+  type UserQuery {
+    login(user: UserLoginData!): LoggedInData
+    isAdmin: Boolean
+    isAdminClaimPossible: Boolean
+  }
 
-const schema: GraphQLSchema = makeExecutableSchema({
-  typeDefs: type,
-  resolvers: resolverMap,
-});
+  input UserLoginData {
+    username: String!
+    password: String!
+  }
 
-export default schema;
+  """
+  All mutations of users system
+  """
+  type UserMutation {
+    makeAdmin(username: String!): Boolean
+    register(user: UserBasicData!): Boolean
+    forgotPassword(username: String!): Boolean
+    resetPassword(reset: ResetPassword!): Boolean
+    changePassword(changePassword: ChangePassword!): Boolean!
+  }
+
+  type LoggedInData {
+    token: String
+  }
+
+  input UserBasicData {
+    username: String!
+    password: String!
+  }
+
+  input ResetPassword {
+    token: String!
+    newPassword: String!
+  }
+
+  input ChangePassword {
+    password: String!
+    newPassword: String!
+  }
+  schema {
+    query: UserQuery
+    mutation: UserMutation
+  }
+`;
