@@ -1,0 +1,36 @@
+{
+  "name": "recriutment_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "./node_modules/.bin/env-cmd -f .env.local ts-node --transpile-only src/index.js",
+    "build": "tsc",
+    "dev:start": "./node_modules/.bin/env-cmd -f .env.local nodemon",
+    "prettier": "prettier --write --config ./.prettierrc './src/**/*.{js,ts,tsx}'",
+    "lint": "tslint -c tslint.json 'src/**/*' --format stylish",
+    "test": "./node_modules/.bin/env-cmd -f .env.test npx jest --detectOpenHandles --forceExit --maxWorkers=10 --verbose true",
+    "restart-database": "npm run rmdatabase && npm run database",
+    "database": "docker run  -d --name mongo -p 27017:27017 mongo",
+    "rmdatabase": "docker stop mongo && docker rm mongo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.3.0",
+    "env-cmd": "^10.1.0",
+    "graphql": "^15.6.1",
+    "graphql-import-node": "0.0.4",
+    "graphql-tools": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.7.0",
+    "typeorm": "^0.2.38"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.5",
+    "typescript": "^4.4.3",
+    "@types/node": "^14.0.19",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.50"
+  }
+}
