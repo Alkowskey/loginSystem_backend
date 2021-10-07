@@ -3,3 +3,4 @@ lib
 .env-secret
 certs
 dump
+build
