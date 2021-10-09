@@ -16,7 +16,7 @@ const schema: GraphQLSchema = makeExecutableSchema({
 export default schema;
 
 const PORT = process.env.PORT || 25552;
-async function startServer() {
+export async function startServer() {
   const server = new ApolloServer({ schema });
   const app = express();
   await server.start();

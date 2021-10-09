@@ -9,7 +9,7 @@
     "dev:start": "./node_modules/.bin/env-cmd -f .env.local nodemon",
     "prettier": "prettier --write --config ./.prettierrc './src/**/*.{js,ts,tsx}'",
     "lint": "tslint -c tslint.json 'src/**/*' --format stylish",
-    "test": "./node_modules/.bin/env-cmd -f .env.test npx jest --detectOpenHandles --forceExit --maxWorkers=10 --verbose true",
+    "test": "./node_modules/.bin/env-cmd -f .env.test npx jest --verbose --coverage --forceExit --watchAll --maxWorkers=1",
     "restart-database": "npm run rmdatabase && npm run database",
     "database": "docker run  -d --name mongo -p 27017:27017 mongo",
     "rmdatabase": "docker stop mongo && docker rm mongo"

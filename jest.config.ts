@@ -9,6 +9,5 @@ export default {
   moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
 
   preset: "ts-jest",
-
   testEnvironment: "node",
 };
