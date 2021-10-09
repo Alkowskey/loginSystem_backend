@@ -3,7 +3,7 @@ import { getMongoRepository } from "typeorm";
 
 import { User } from "../entity/User";
 import { IRegisterInput } from "../interfaces";
-import { isValidPassword, isValidUsername } from "../validation";
+import { isValidPassword, isValidUsername } from "../validation/validation";
 
 export const register = async (input: IRegisterInput) => {
   const db = getMongoRepository(User);
