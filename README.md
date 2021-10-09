@@ -1,8 +1,8 @@
 ## Requirements
 
-- Node 8
+- Node
 - Git
-- Installed docker
+- Docker
 
 ## Common setup
 
