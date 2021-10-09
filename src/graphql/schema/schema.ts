@@ -8,6 +8,7 @@ export default gql`
     login(user: UserLoginData!): LoggedInData
     isAdmin: Boolean
     isAdminClaimPossible: Boolean
+    displayUser: [String]
   }
 
   input UserLoginData {
