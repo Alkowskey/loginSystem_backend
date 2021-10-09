@@ -4,7 +4,7 @@
 - Git
 - Docker
 
-## Common setup
+## Setup
 
 Clone the repo and install the dependencies.
 
